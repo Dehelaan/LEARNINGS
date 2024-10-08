@@ -1,4 +1,5 @@
 print('working with csv files')
+import pandas as pd
 import csv
 from collections import Counter
 import numpy as np
@@ -6,14 +7,18 @@ from matplotlib import pyplot as plt
 
 plt.style.use("fivethirtyeight")
 
-with open('matplotlib_learning\data.csv') as csv_file: 
-    csv_reader = csv.DictReader(csv_file)  # method to read a csv file without pandas
+data = pd.read_csv('matplotlib_learning\data.csv') # using pandas to read csv
+ids = data['Responder_id']
+lang_responses =data['LanguagesWorkedWith']
+#with open('matplotlib_learning\data.csv') as csv_file:
+#    csv_reader = csv.DictReader(csv_file)  # method to read a csv file without pandas
 
-    language_counter = Counter() #created a variable to store counted values
+language_counter = Counter() #created a variable to store counted values
 
-    for row in csv_reader:
-        language_counter.update(row['LanguagesWorkedWith'].split(';')) #updating each values as loop goes on
-
+#for row in csv_reader:
+for response in lang_responses:
+#    language_counter.update(row['LanguagesWorkedWith'].split(';')) #updating each values as loop goes on
+    language_counter.update(response.split(';'))
     #row = next(csv_reader)
     #print(row['LanguagesWorkedWith'].split(';')) #giving a list of first row in csv
 #print(language_counter.most_common(10)) #counting most common 10 values and storing them in list of tuple
