@@ -1,24 +1,13 @@
 # LEARNINGS
 This Repo contains all my learnings.
-
-Python
-
-Pandas
-
-NumPy
-
-Matplotlib
-
-Seaborn
-
-Machine Learning Algos
-
-Scikit-learn
-
-Deep Learning
-
-TensorFlow
-
-Keras
-
-PyTorch
+- [X] Python
+- [X] Pandas
+- [ ] NumPy
+- [X] Matplotlib
+- [ ] Seaborn
+- [X] Machine Learning Algos
+- [ ] Scikit-learn
+- [ ] Deep Learning
+- [ ] TensorFlow
+- [ ] Keras
+- [ ] PyTorch
