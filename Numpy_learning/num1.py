@@ -1,3 +1,4 @@
+print("Getting started")
 import numpy as np # TO import the numpy library
 a = np.array([1,2,3],dtype='int32') # To form a array
 print(a) # tO PRINT THe array
