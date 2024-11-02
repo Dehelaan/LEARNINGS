@@ -18,3 +18,9 @@ print(np.identity(3))
 arr=np.array([[1,2,3]])
 r1=np.repeat(arr,3,axis=0)
 print(r1)
+
+# be careful when copying a array make sure to use copy() function
+b=a.copy()
+b[1,1]=100
+print(a)
+print(b)
