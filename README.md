@@ -2,7 +2,7 @@
 This Repo contains all my learnings.
 - [X] Python
 - [X] Pandas
-- [ ] NumPy
+- [X] NumPy
 - [X] Matplotlib
 - [ ] Seaborn
 - [X] Machine Learning Algos
