@@ -1,6 +1,6 @@
 # LEARNINGS
 This Repo contains all my learnings.
-- [X] Python
+- [X] Python(DSA)
 - [X] Pandas
 - [X] NumPy
 - [X] Matplotlib
