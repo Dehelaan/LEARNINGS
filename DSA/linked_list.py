@@ -43,10 +43,10 @@ def search(head,val):
     curr = head
     while curr:
         if curr.val == val:
-            return 1
+            return bool(1)
         curr = curr.next
 
-    return 0
+    return bool(0)
 
 print(search(Head,23))
 
