@@ -11,8 +11,24 @@ class Employee: #class
 
         Employee.No_of_employee+=1
 
+    @property  #making fulname method as dectorator that means we can access it without parenthesis
     def fullname(self):  # method
         return '{} {}'.format(self.first,self.last)
+
+    #making a setter using decorator
+    @fullname.setter
+    def fullname(self,name):
+        first,last=name.split(' ')
+        self.first=first
+        self.last=last
+
+    #making a deleter using decorator
+    @fullname.deleter
+    def fullname(self):
+        print('Delete Name')
+        self.first=None
+        self.last=None
+
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amount)
 
@@ -31,6 +47,18 @@ class Employee: #class
         if day.weekday() == 5 or day.weekday() == 6:
             return False
         return True
+
+    def __repr__(self):  #special methods
+        return "Employee('{}', '{}', {})".format(self.first,self.last,self.pay)
+
+    def __str__(self):
+        return '{} - {}'.format(self.fullname,self.email)
+
+    def __add__(self,other):
+        return self.pay + other.pay
+
+    def __len__(self):
+        return len(self.email)
 
 class Developer(Employee):  #INHERITANCE of Employee class
     raise_amount= 1.10
@@ -59,13 +87,13 @@ class Manager(Employee):
 
     def print_emp(self):
         for emp in self.employees:
-            print('-->',emp.fullname())
+            print('-->',emp.fullname)
 
 emp1 = Employee("Nihal","Chaudhary",1000)  #object
 emp2 = Employee("Deepak","Chaudhary",500)
 
 print(emp2.email,emp1.fullname)#
-print(Employee.fullname(emp1))#Different ways to call
+#print(Employee.fullname(emp1))#Different ways to call
 
 print(emp1.__dict__)
 #emp1.raise_amount=1.05
@@ -105,3 +133,16 @@ mng_1.print_emp()
 
 print(isinstance(mng_1,Employee))
 print(issubclass(Manager,Employee))
+
+#implementing specials methods from class employee
+print(emp1.__repr__())
+print(emp2.__str__())
+print(emp1 + emp2)
+print(len(emp1))
+
+#implementing property decorators
+print(emp1.fullname) #accessing property
+emp1.fullname='Jaat Boys'#changing name through setter
+print(emp1.fullname) #accessing property
+del(emp1.fullname) #deleting name using deleter
+print(emp1.fullname)
