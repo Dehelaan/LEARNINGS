@@ -32,6 +32,35 @@ class Employee: #class
             return False
         return True
 
+class Developer(Employee):  #INHERITANCE of Employee class
+    raise_amount= 1.10
+
+    def __init__(self, first, last, pay,prog_lang):
+        super().__init__(first, last, pay)
+        self.prog_lang =prog_lang
+
+
+class Manager(Employee):
+    def __init__(self, first, last, pay, employees=None):
+        super().__init__(first, last, pay)
+        if employees is None:
+            self.employees = []
+        else:
+            self.employees = employees
+
+
+    def add_emp(self,emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+
+    def remove_emp(self,emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
+
+    def print_emp(self):
+        for emp in self.employees:
+            print('-->',emp.fullname())
+
 emp1 = Employee("Nihal","Chaudhary",1000)  #object
 emp2 = Employee("Deepak","Chaudhary",500)
 
@@ -54,3 +83,25 @@ print(new_emp_1.email)
 import datetime
 my_date=datetime.date(2024,11,21)
 print(Employee.is_workday(my_date)) #static method
+
+
+dev_1=Developer("Nihal","Chaudhary",1000,'python')  #object
+dev_2 = Developer("Deepak","Chaudhary",5000,'R')
+
+print(dev_1.email,dev_2.email)
+#print(help(Developer ))
+print(dev_2.pay)
+dev_2.apply_raise()
+print(dev_2.pay)
+
+mng_1=Manager('sue','smith',9000,[dev_1])
+
+print(mng_1.email)
+
+mng_1.add_emp(dev_2)
+mng_1.print_emp()
+mng_1.remove_emp(dev_1)
+mng_1.print_emp()
+
+print(isinstance(mng_1,Employee))
+print(issubclass(Manager,Employee))
