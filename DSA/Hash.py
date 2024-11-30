@@ -60,7 +60,7 @@ default[2]
 print(default[2])
 
 
-#counter
+#counter convert string to dict or hashmap
 from collections import Counter
 
 counter=Counter(string)
